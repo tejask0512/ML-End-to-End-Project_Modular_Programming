@@ -90,7 +90,7 @@ class ModelTrainer:
             }
 
             model_report:dict=evaluate_models(X_train=X_train,y_train=y_train,X_test=X_test,y_test=y_test,
-                                             models=models)
+                                             models=models,param=params)
             
             logging.info("Model Evaluation Done !")
             best_model_score = max(sorted(model_report.values()))
