@@ -92,6 +92,7 @@ class ModelTrainer:
             model_report:dict=evaluate_models(X_train=X_train,y_train=y_train,X_test=X_test,y_test=y_test,
                                              models=models)
             
+            logging.info("Model Evaluation Done !")
             best_model_score = max(sorted(model_report.values()))
 
             ## To get best model name from dict
@@ -111,8 +112,9 @@ class ModelTrainer:
             )
 
             predicted=best_model.predict(X_test)
-
+            
             r2_square = r2_score(y_test, predicted)
+            logging.info("Calculated the r2_score !")
             return r2_square
             
         except Exception as e:
